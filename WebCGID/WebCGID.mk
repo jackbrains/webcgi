@@ -3,10 +3,10 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=WebCGI
+ProjectName            :=WebCGID
 ConfigurationName      :=Debug
 WorkspacePath          :=/home/sourcecode/文档/labs/WebCGI
-ProjectPath            :=/home/sourcecode/文档/labs/WebCGI/WebCGI
+ProjectPath            :=/home/sourcecode/文档/labs/WebCGI/WebCGID
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -15,8 +15,8 @@ CurrentFileFullPath    :=
 User                   :=
 Date                   :=06/16/17
 CodeLitePath           :=/home/sourcecode/.codelite
-LinkerName             :=/usr/bin/g++
-SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
+LinkerName             :=/usr/bin/clang++
+SharedObjectLinkerName :=/usr/bin/clang++ -shared -fPIC
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
 PreprocessSuffix       :=.i
@@ -32,7 +32,7 @@ Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
-ObjectsFileList        :="WebCGI.txt"
+ObjectsFileList        :="WebCGID.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
@@ -48,8 +48,8 @@ LibPath                := $(LibraryPathSwitch).
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
 AR       := /usr/bin/ar rcu
-CXX      := /usr/bin/g++
-CC       := /usr/bin/gcc
+CXX      := /usr/bin/clang++
+CC       := /usr/bin/clang
 CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/FastCGIContext.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
 
 
 
@@ -92,20 +92,12 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sourcecode/文档/labs/WebCGI/WebCGI/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sourcecode/文档/labs/WebCGI/WebCGID/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
-
-$(IntermediateDirectory)/FastCGIContext.cpp$(ObjectSuffix): FastCGIContext.cpp $(IntermediateDirectory)/FastCGIContext.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sourcecode/文档/labs/WebCGI/WebCGI/FastCGIContext.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FastCGIContext.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/FastCGIContext.cpp$(DependSuffix): FastCGIContext.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FastCGIContext.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FastCGIContext.cpp$(DependSuffix) -MM FastCGIContext.cpp
-
-$(IntermediateDirectory)/FastCGIContext.cpp$(PreprocessSuffix): FastCGIContext.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FastCGIContext.cpp$(PreprocessSuffix) FastCGIContext.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

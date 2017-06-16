@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="WebCGI" Database="" Version="10.0.0">
   <Project Name="WebCGI" Path="WebCGI/WebCGI.project" Active="Yes"/>
+  <Project Name="WebCGID" Path="WebCGID/WebCGID.project" Active="No"/>
+  <Project Name="webcgi-fpm" Path="webcgi-fpm/webcgi-fpm.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
       <Project Name="WebCGI" ConfigName="Debug"/>
+      <Project Name="WebCGID" ConfigName="Debug"/>
+      <Project Name="webcgi-fpm" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="WebCGI" ConfigName="Release"/>
+      <Project Name="WebCGID" ConfigName="Release"/>
+      <Project Name="webcgi-fpm" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
